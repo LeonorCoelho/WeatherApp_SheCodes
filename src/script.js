@@ -42,29 +42,39 @@ function dayMonthHourInfo() {
   dayMonth.innerHTML = date + " " + month + " " + hours + ":" + minutes;
 }
 
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="col-sm-3 forecastCol" id="forecast">`;
-  forecastHTML = `          
-            <div class="row day">
+function displayForecast(response) {
+let forecast = response.data.daily;
+let forecastElement = document.querySelector("#forecast");
+let forecastHTML = ``;
+
+  
+
+  forecast.forEach(function (forecastDay) {
+    forecastHTML =
+      forecastHTML +
+      `              <div class="row day">
               <div class="col forecastIcon">
-                <img src="" alt="Clear" id="icon-day-week" width="30" />
+                <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="Clear" id="icon-day-week" width="30" />
               </div>
               <div class="col forecastDay">
-                <ul>
-                  <li>
-                    Tuesday<br />
+                                    ${forecastDay.dt}<br />
                     <span class="forecast-temp-max">
-                      3ºC
+                      ${forecastDay.temp.max}
                     </span>
-                    <span class="forecast-temp-min">-8ºC</small>
-                  </li>
-                </ul>
-              </div>
-            </div>`;
-  forecastHTML = forecastHTML + forecastHTML +`</div>`;
+                    <span class="forecast-temp-min">${forecastDay.temp.min}</small>
+                    </div>a
+            </div><br/>`;
+  });
+  forecastHTML = forecastHTML;
 
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "67913d7d175725fbd0ee22887fbda235";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemp(response) {
@@ -85,7 +95,7 @@ function showTemp(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
 function search(city) {
