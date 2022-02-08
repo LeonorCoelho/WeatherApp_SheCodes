@@ -23,18 +23,15 @@ li {
   font-size: 35px;
 }
 
-.iday-one,
-.iday-two,
-.iday-three,
-.iday-four,
-.iday-five {
-  font-size: 30px;
+.forecastCol {
+  margin-top: 8px;
+  text-align: center;
 }
-.day-one:hover,
-.day-two:hover,
-.day-three:hover,
-.day-four:hover,
-.day-five:hover {
-  opacity: 70%;
+
+.forecast-temp-max,
+.forecast-temp-min {
+  font-size: 12px;
+}
+.forecastDay {
   font-size: 18px;
 }

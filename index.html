@@ -12,10 +12,6 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/a82746ab9e.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="src/style.css" rel="stylesheet" type="text/css" />
   </head>
@@ -52,75 +48,26 @@
             <h4 id="weekDay">weekDay</h4>
             <h6 id="dayMonth">Day Month</h6>
           </div>
-          <div class="col-sm-3 next-days">
-            <div class="row day-one">
-              <div class="col">
-                <i class="far fa-snowflake iday-one"></i>
+
+          <div class="col-sm-3 forecastCol">
+            <div class="row day">
+              <div class="col forecastIcon">
+                <img src="" alt="Clear" id="icon-day-week" width="30" />
               </div>
-              <div class="col day-one-info">
+              <div class="col forecastDay">
                 <ul>
                   <li>
                     Tuesday<br />
-                    3ºC/-8ºC
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="row day-two">
-              <div class="col">
-                <i class="fas fa-cloud-sun iday-two"></i>
-              </div>
-              <div class="col day-two-info">
-                <ul>
-                  <li>
-                    Wednesday<br />
-                    7ºC/0ºC
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="row day-three">
-              <div class="col">
-                <i class="fas fa-cloud-showers-heavy iday-three"></i>
-              </div>
-              <div class="col day-three-info">
-                <ul>
-                  <li>
-                    Thursday<br />
-                    13ºC/5ºC
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="row day-four">
-              <div class="col">
-                <i class="fas fa-sun iday-four"></i>
-              </div>
-              <div class="col day-four-info">
-                <ul>
-                  <li>
-                    Friday<br />
-                    21C/12ºC
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="row day-five">
-              <div class="col">
-                <i class="far fa-snowflake iday-five"></i>
-              </div>
-              <div class="col day-five-info">
-                <ul>
-                  <li>
-                    Saturday<br />
-                    3ºC/-8ºC
+                    <span class="forecast-temp-max">
+                      3ºC
+                    </span>
+                    <span class="forecast-temp-min">-8ºC</small>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <br />
       </div>
       <small>
         <a

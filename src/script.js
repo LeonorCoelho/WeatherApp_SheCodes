@@ -73,9 +73,10 @@ function handleSubmit(event) {
     search(city)
 }
 
-search("Lisbon")
+
 let now = new Date();
 let cityInput = document.querySelector("#submit-city");
 weekInfo(now);
 dayMonthHourInfo(now);
+search("Lisbon")
 cityInput.addEventListener("submit", handleSubmit);
