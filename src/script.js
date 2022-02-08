@@ -61,16 +61,21 @@ function showTemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function search(event) {
-  event.preventDefault();
+function search(city){
   let apiKey = "67913d7d175725fbd0ee22887fbda235";
-  let city = document.querySelector("#enter-city").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemp);
+   axios.get(apiUrl).then(showTemp);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+    let city = document.querySelector("#enter-city").value;
+    search(city)
+}
+
+search("Lisbon")
 let now = new Date();
 let cityInput = document.querySelector("#submit-city");
 weekInfo(now);
 dayMonthHourInfo(now);
-cityInput.addEventListener("submit", search);
+cityInput.addEventListener("submit", handleSubmit);
