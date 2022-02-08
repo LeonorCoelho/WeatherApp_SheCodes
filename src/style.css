@@ -15,15 +15,12 @@ li {
 }
 
 .cityNameShow {
-  font-size: 50px;
-}
-.principal-icon {
-  font-size: 100px;
+  font-size: 40px;
 }
 
 .tempDay,
 .conversion {
-  font-size: 45px;
+  font-size: 35px;
 }
 
 .iday-one,

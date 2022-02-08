@@ -53,6 +53,12 @@ function showTemp(response) {
   document.querySelector("#max").innerHTML = Math.round(
     response.data.main.temp_max
   );
+  let iconElement = document.querySelector("#icon-principal");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(event) {
