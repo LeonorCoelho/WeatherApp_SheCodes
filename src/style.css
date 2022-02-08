@@ -1,21 +1,31 @@
 li {
   list-style-type: none;
 }
+.weatherApp {
+  border: 1px solid rgb(228, 221, 221);
+  border-radius: 5px;
+  padding: 20px;
+}
 .container {
-  max-width: 900px;
-  margin: auto;
   font-family: monospace;
   text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cityNameShow {
+  font-size: 50px;
 }
 .principal-icon {
   font-size: 100px;
 }
-.tempDay {
-  font-size: 50px;
-}
+
+.tempDay,
 .conversion {
-  font-size: 30px;
+  font-size: 45px;
 }
+
 .iday-one,
 .iday-two,
 .iday-three,
@@ -30,8 +40,4 @@ li {
 .day-five:hover {
   opacity: 70%;
   font-size: 18px;
-}
-
-.cityNameShow {
-  font-size: 25px;
 }
