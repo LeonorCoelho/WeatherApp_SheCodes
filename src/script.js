@@ -42,6 +42,31 @@ function dayMonthHourInfo() {
   dayMonth.innerHTML = date + " " + month + " " + hours + ":" + minutes;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="col-sm-3 forecastCol" id="forecast">`;
+  forecastHTML = `          
+            <div class="row day">
+              <div class="col forecastIcon">
+                <img src="" alt="Clear" id="icon-day-week" width="30" />
+              </div>
+              <div class="col forecastDay">
+                <ul>
+                  <li>
+                    Tuesday<br />
+                    <span class="forecast-temp-max">
+                      3ºC
+                    </span>
+                    <span class="forecast-temp-min">-8ºC</small>
+                  </li>
+                </ul>
+              </div>
+            </div>`;
+  forecastHTML = forecastHTML + forecastHTML +`</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemp(response) {
   document.querySelector("#cityName-Principal").innerHTML = response.data.name;
   document.querySelector("#temp-days").innerHTML = Math.round(
@@ -59,24 +84,25 @@ function showTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  displayForecast();
 }
 
-function search(city){
+function search(city) {
   let apiKey = "67913d7d175725fbd0ee22887fbda235";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-   axios.get(apiUrl).then(showTemp);
+  axios.get(apiUrl).then(showTemp);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-    let city = document.querySelector("#enter-city").value;
-    search(city)
+  let city = document.querySelector("#enter-city").value;
+  search(city);
 }
-
 
 let now = new Date();
 let cityInput = document.querySelector("#submit-city");
 weekInfo(now);
 dayMonthHourInfo(now);
-search("Lisbon")
+search("Lisbon");
 cityInput.addEventListener("submit", handleSubmit);
