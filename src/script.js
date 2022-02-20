@@ -73,7 +73,7 @@ function displayForecast(response) {
                     <span class="forecast-temp-min">${Math.round(
                       forecastDay.temp.min
                     )}ºC</small>
-                    </div>a
+                    </div>
             </div><br/>`;
     }
   });
@@ -94,12 +94,7 @@ function showTemp(response) {
   document.querySelector("#temp-days").innerHTML = Math.round(
     response.data.main.temp
   );
-  document.querySelector("#min").innerHTML = Math.round(
-    response.data.main.temp_min
-  );
-  document.querySelector("#max").innerHTML = Math.round(
-    response.data.main.temp_max
-  );
+
   let iconElement = document.querySelector("#icon-principal");
   iconElement.setAttribute(
     "src",
